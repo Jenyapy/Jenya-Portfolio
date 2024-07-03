@@ -43,4 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.openModal = openModal;
     window.closeModal = closeModal;
+    //Contact form handling
+     document.querySelector('#contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_j0bpkam', 'contact_form', this)
+            .then(() => {
+                alert('Your message has been sent successfully!');
+                document.querySelector('#contact-form').reset(); // Clear the form after submission
+            }, (error) => {
+                alert('Failed to send your message. Please try again later.');
+                console.error('Failed to send email:', error);
+            });
+    });
 });
