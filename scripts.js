@@ -44,4 +44,3 @@ document.addEventListener("DOMContentLoaded", () => {
     window.openModal = openModal;
     window.closeModal = closeModal;
 });
-
