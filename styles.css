@@ -233,12 +233,6 @@ button:hover {
 }
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
-    .nav-links {
-        gap: 15px;
-    }
-}
-
 @media (max-width: 768px) {
     .nav-links {
         display: none;
