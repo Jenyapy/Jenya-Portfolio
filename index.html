@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenya Pribylov | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Jenya Pribylov</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <div class="about-container">
+                <img src="images/profile.jpg" alt="Profile Picture" class="profile-picture">
+                <p>Hello, I'm Jenya Pribylov, a full-stack developer with expertise in web development, data migration, and system optimization. I'm passionate about creating efficient and scalable web applications.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Java</li>
+                <li>Python</li>
+                <li>HTML & CSS</li>
+                <li>SQL</li>
+                <li>JavaScript</li>
+                <li>Git</li>
+                <li>Linux/UNIX</li>
+                <li>Power BI</li>
+                <li>React</li>
+                <li>Node.js</li>
+                <li>WordPress</li>
+                <li>Project Management</li>
+                <li>Data Analysis</li>
+                <li>Statistical Analysis</li>
+                <li>Tableau</li>
+                <li>Google Analytics</li>
+            </ul>
+        </section>
+
+        <section id="experience" class="section">
+            <h2>Experience</h2>
+            <div class="experience-container">
+                <div class="experience-card">
+                    <h3>Business Analyst</h3>
+                    <h4>Statistics Canada</h4>
+                    <p>2021 - 2023</p>
+                    <ul>
+                        <li>Responsible for data migration and import processes into Microsoft Dynamics-based CRMS from an Oracle based CRMS.</li>
+                        <li>Created new user account roles and permissions using Oracle SQL allowing for proper internal user access.</li>
+                        <li>Extracted and analyzed data from Oracle-based CRMS to facilitate informed decision-making on data re-mapping strategies.</li>
+                        <li>Utilized MS Dynamics-based CRMS to design and implement user dashboards, views, and reports, optimizing user experience and data presentation.</li>
+                        <li>Tested new system including UAT unit testing and regression testing initiatives to ensure system functionality and stability.</li>
+                        <li>Managed Jira tickets for bug fixes, prioritized system errors, and collaborated with development teams to address issues.</li>
+                        <li>Developed comprehensive system entity relationship diagrams for CRMS using MS Visio, contributing to effective system architecture and design.</li>
+                        <li>Developed and delivered Microsoft Dynamics training materials and documentation for onboarding new system users.</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <h3>Web Developer</h3>
+                    <h4>Algonquin College</h4>
+                    <p>2020 - 2021</p>
+                    <ul>
+                        <li>Collaborated with a team of five developers to design, program, and launch a custom website for the non-profit organization, Building Black Youth Foundation (BBYF).</li>
+                        <li>Utilized web development technologies such as HTML, CSS, JavaScript, and React to create a visually appealing and user-friendly website.</li>
+                        <li>Regularly communicated with BBYF stakeholders to gather feedback, identify requirements, and implement necessary changes.</li>
+                        <li>Conducted thorough testing and debugging procedures to ensure website functionality, reliability, and performance across various devices and platforms.</li>
+                        <li>Created and maintained project documentation, detailing the development process, technologies used, and any challenges encountered.</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <h3>Research Assistant</h3>
+                    <h4>Carleton University</h4>
+                    <p>2018 - 2019</p>
+                    <ul>
+                        <li>Conducted extensive research on incorporation legislation at both provincial and federal levels, presenting findings to staff members in a comprehensive and accessible manner.</li>
+                        <li>Prepared and filed NUANS reports, and created course packs for staff presentations and lessons, enhancing the organization's knowledge base and facilitating informed decision-making.</li>
+                        <li>Skillfully coordinated efforts between web development and incorporation teams, successfully meeting changing project deadlines and ensuring seamless collaboration.</li>
+                        <li>Met with supervisor to touch base on project progress and determine any possible blockers for next steps.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <div class="project-card" onclick="openModal('project1')">
+                    <h3>Business Website - SPOK Construction Inc</h3>
+                    <p>Redesigned and developed the Spok Home Renovation website using WordPress, creating a visually appealing, user-friendly, and responsive design.</p>
+                </div>
+                <div class="project-card" onclick="openModal('project2')">
+                    <h3>Blood Bank REST API - Algonquin College</h3>
+                    <p>Designed and completed a fully functional REST API using Java Persistence API (JPA) alongside a team of three developers.</p>
+                </div>
+                <div class="project-card" onclick="openModal('project3')">
+                    <h3>Building Black Youth Foundation (BBYF) Website</h3>
+                    <p>Collaborated with a team of five developers to design, program, and launch a custom website for the non-profit organization.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="modal-project1" class="modal-project">
+                <h3>Business Website - SPOK Construction Inc</h3>
+                <p>Redesigned and developed the Spok Home Renovation website using WordPress, creating a visually appealing, user-friendly, and responsive design.</p>
+                <p>Ensured the website aligned with the company’s branding and goals.</p>
+                <p>Managed and optimized web content, including text, images, videos, and graphics, to effectively showcase renovation services and projects.</p>
+                <p>Implemented SEO best practices to enhance search engine rankings and increase organic traffic.</p>
+                <p>Developed custom WordPress themes and plugins to enhance website functionality and user experience.</p>
+                <p>Integrated essential features such as contact forms, project galleries, customer testimonials, and an easy-to-navigate menu.</p>
+                <p>Optimized the website for speed and performance, ensuring fast load times and smooth user interactions.</p>
+                <p>Implemented best practices for website security and regular maintenance.</p>
+                <p>Integrated third-party tools and services, including Google Analytics, social media platforms, and email marketing services.</p>
+                <p>Conducted thorough testing to ensure compatibility and functionality across all major browsers and devices.</p>
+                <p>Website can be seen here: <a href="https://spokhomerenovation.com/" target="_blank">https://spokhomerenovation.com/</a></p>
+            </div>
+            <div id="modal-project2" class="modal-project">
+                <h3>Blood Bank REST API - Algonquin College</h3>
+                <p>Designed and completed a fully functional REST API using Java Persistence API (JPA) alongside a team of three developers.</p>
+                <p>Led the design and implementation of the REST resource package.</p>
+                <p>Developed and integrated address and phone services within the Enterprise Java Beans (EJB) package of the application.</p>
+                <p>Ensured seamless connectivity and data management between services.</p>
+                <p>Collaborated effectively with team members to deliver high-quality, scalable API solutions.</p>
+                <p>Contributed to project planning, code reviews, and iterative development cycles.</p>
+                <p>Resulted in a web-hosted application with a functional GUI for managing user information related to blood donation services.</p>
+                <p>Implemented full security measures and user role management to ensure data protection and proper access control.</p>
+                <p>Readme file for project can be seen here: <a href="https://github.com/WentaoLuk-AC/Java_Final_Project/blob/main/README.md" target="_blank">GitHub README</a></p>
+            </div>
+            <div id="modal-project3" class="modal-project">
+                <h3>Building Black Youth Foundation (BBYF) Website</h3>
+                <p>Collaborated with a team of five developers to design, program, and launch a custom website for the non-profit organization.</p>
+                <p>Utilized web development technologies such as HTML, CSS, JavaScript, and React to create a visually appealing and user-friendly website.</p>
+                <p>Designed and implemented the user interface based on stakeholders' requirements, adhering to an existing theme using React and JavaScript.</p>
+                <p>Conducted unit and regression testing at the end of each sprint to ensure cross-functionality between different parts of the website.</p>
+                <p>Assisted with the implementation and final launch of the website, which can be seen here: <a href="https://www.bbyf.org/" target="_blank">https://www.bbyf.org/</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Jenya Pribylov. All rights reserved.</p>
+    </footer>
+</body>
+</html>
