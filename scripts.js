@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector('.burger');
   const nav = document.querySelector('.nav-links');
 
-  // Mobile nav
+  // ===== Mobile nav =====
   if (burger && nav) {
     burger.addEventListener('click', () => {
       nav.classList.toggle('nav-active');
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Scroll active link
+  // ===== Scroll active link =====
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -31,43 +31,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Modal helpers
+  // ===== Modal helpers =====
+  const modalRoot = document.getElementById('modal');
+
+  // Show selected project details inside modal
   const openModal = (projectId) => {
-    const modal = document.getElementById('modal');
-    if (!modal) return;
-    modal.style.display = 'flex';
+    if (!modalRoot) return;
+
+    // Hide any previously open project blocks
+    document.querySelectorAll('.modal-project').forEach(p => (p.style.display = 'none'));
+
+    // Show modal + the requested project block
     const target = document.getElementById(`modal-${projectId}`);
-    if (target) target.style.display = 'block';
+    if (target) {
+      modalRoot.style.display = 'flex';
+      target.style.display = 'block';
+
+      // Optional: focus the close button if present
+      const closeBtn = modalRoot.querySelector('.close-button');
+      if (closeBtn) closeBtn.focus();
+    }
   };
 
+  // Hide modal + reset inner blocks
   const closeModal = () => {
-    const modal = document.getElementById('modal');
-    if (!modal) return;
-    modal.style.display = 'none';
-    document.querySelectorAll('.modal-project').forEach(p => p.style.display = 'none');
+    if (!modalRoot) return;
+    modalRoot.style.display = 'none';
+    document.querySelectorAll('.modal-project').forEach(p => (p.style.display = 'none'));
   };
 
+  // Close on overlay click (but not when clicking inside the content)
+  if (modalRoot) {
+    modalRoot.addEventListener('click', (e) => {
+      if (e.target === modalRoot) closeModal();
+    });
+  }
+
+  // Close on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalRoot && modalRoot.style.display === 'flex') {
+      closeModal();
+    }
+  });
+
+  // Expose to inline onclick handlers in your HTML cards & close button
   window.openModal = openModal;
   window.closeModal = closeModal;
 
   // ===== EmailJS wiring =====
-  // IMPORTANT: replace with your own EmailJS IDs if different
-  const EMAILJS_PUBLIC_KEY = "mBEMkxKVbHuiVWwi0";     // your public key
-  const EMAILJS_SERVICE_ID = "service_j0bpkam";        // your Service ID
-  const EMAILJS_TEMPLATE_ID = "contact_form";          // your Template ID
+  const EMAILJS_PUBLIC_KEY = "mBEMkxKVbHuiVWwi0"; // your public key
+  const EMAILJS_SERVICE_ID = "service_j0bpkam";    // your Service ID
+  const EMAILJS_TEMPLATE_ID = "contact_form";      // your Template ID
 
-  // Initialize EmailJS (only once)
   if (window.emailjs && typeof emailjs.init === 'function') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }
 
-  // Contact form handling
   const contactForm = document.querySelector('#contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function (event) {
       event.preventDefault();
 
-      // Optional basic guard
       const name = this.querySelector('input[name="from_name"]')?.value?.trim();
       const email = this.querySelector('input[name="reply_to"]')?.value?.trim();
       const msg = this.querySelector('textarea[name="message"]')?.value?.trim();
